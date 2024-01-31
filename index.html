@@ -4,34 +4,72 @@
         <title>Wurkouts</title>
     </head>
     <body>
-        <table><h1>My Previous Wurkouts</h1>
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <!-- TODO(Keenan) consider adding the time -->
-                    <th>Master Excercise</th>
-                    <th>Progression Name</th>
-                    <th>Level</th>
-                    <th>Had Warmups?</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <!-- TODO(Keenan) add a query into the href to point to actual workout -->
-                    <td><a href="log.html">01/16/2023</td>
-                        <td>Push Up</td>
-                        <td>Incline Push Up</td>
-                        <td>2</td>
-                        <td><input type="checkbox", checked/ disabled></td>
-                </tr>
-                <tr>
-                    <td><a href="log.html">01/16/2023</td>
-                        <td>Leg Laise</td>
-                        <td>Knee Tuck</td>
-                        <td>1</td>
-                        <td><input type="checkbox", disabled></td>
-                </tr>
-            </tbody>
-        </table>
+        <h1>Home Page</h1>
+        <section>
+            <h2>Previous workouts</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <!-- TODO(Keenan) consider adding the time -->
+                        <th>Master Excercise</th>
+                        <th>Progression Name</th>
+                        <th>Level</th>
+                        <th>Had Warmups?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <!-- TODO(Keenan) add a query into the href to point to actual workout -->
+                        <td><a href="log.html">01/16/2023</td>
+                            <td>Push Up</td>
+                            <td>Incline Push Up</td>
+                            <td>2</td>
+                            <td><input type="checkbox", checked/ disabled></td>
+                    </tr>
+                    <tr>
+                        <td><a href="log.html">01/16/2023</td>
+                            <td>Leg Laise</td>
+                            <td>Knee Tuck</td>
+                            <td>1</td>
+                            <td><input type="checkbox", disabled></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <h2>Log Workout</h2>
+            <form>
+                <!-- TODO(Keenan) Remove these brs with stying later. -->
+                <label for="date">Date</label>
+                <input type="date" name="date" id="date" />
+                <br/>
+                <label for="master_exercise">Select Master Exercise</label>
+                <select name="master_exercises" id="master_exercises">
+                    <option value="">--Please choose an options--</option>
+                    <option value="one_arm_pushup">One Arm Pushup</option>
+                    <option value="one_arm_pullup">One Arm Pullup</option>
+                    <option value="hanging_leg_raise">Hanging Leg Raise</option>
+                    <option value="stand_to_stand_bridge">Stand to Stand Bridge</option>
+                    <option value="one_arm_handstand_pushups">One Arm Handstand Pushups</option>
+                    <option value="one_leg_squat">One Leg Squat</option>
+                </select>
+                <br/>
+                <label for="progression_exercise">Select Progression Exercise</label>
+                <select name="progression_exercise" id="progression_exercises">
+                    <option value="">--Please choose and option--</option>
+                </select>
+                <br/>
+                <label for="has_warmup">Add Warmup</label>
+                <input type="checkbox" id="has_warmup" />
+                <!-- this is where the js will place the div -->
+                <!-- so we are actually going to be toggling this div here -->
+                <!-- TODO(Keenan) Remember that warming up means that you are only doing
+                     the exercise level at and below the current exercise -->
+                <br/>
+                <label for="">
+            </form>
+        </section>
     </body>
+    <script type="text/javascript" src="app.js"></script>
 </html>

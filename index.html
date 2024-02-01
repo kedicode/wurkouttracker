@@ -57,15 +57,28 @@
                 <br/>
                 <label for="progression_exercise">Select Progression Exercise</label>
                 <select name="progression_exercise" id="progression_exercises">
-                    <option value="">--Please choose and option--</option>
+                    <option value="">--Please choose an option--</option>
                 </select>
                 <br/>
                 <label for="has_warmup">Add Warmup</label>
                 <input type="checkbox" id="has_warmup" />
-                <!-- this is where the js will place the div -->
-                <!-- so we are actually going to be toggling this div here -->
                 <!-- TODO(Keenan) Remember that warming up means that you are only doing
                      the exercise level at and below the current exercise -->
+                <fieldset id="warmup_toggle", style="display: none">
+                    <legend>
+                        Log your warmup
+                    </legend>
+                    <label for="warmup_exercise">Warmup</label>
+                    <select id="warmup_exercise" name="warmup_exercise">
+                        <option>--Please choose an options</option>
+                    </select>
+                    <br/>
+                    <label for="warmup_set1">Set 1 reps</label>
+                    <input type="number" id="warmup_set1" name="warmup_set1" min="10" max="25">
+                    <br/>
+                    <label for="warmup_set2">Set 2 reps</label>
+                    <input type="number" id="warmup_set2" name="warmup_set2" min="10" max="25">
+                </fieldset>
                 <br/>
                 <label for="">
             </form>

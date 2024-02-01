@@ -3,9 +3,22 @@ function clear_and_add_options(select_element, options_list){
     for(let i = 0; i < options_length; i++){
         select_element.remove(0);
     }
-    for(let i = 0; i < exercises.length; i++){
+    for(let i = 0; i < options_list.length; i++){
         select_element.add(options_list[i]);
     }
+}
+
+function hydrate_warmup(event){
+    // need to get the index of the selected progression exercise
+    selected_id = event.target.selectedIndex;
+    // build a new options list with the options that have ids <= the selected one
+    warmup_options = [];
+    for(let i = 0; i <= selected_id; i++){
+        warmup_options.push(event.target.item(i));
+    }
+    console.log(selected_id);
+    warmup_select = document.getElementById("warmup_exercise");
+    clear_and_add_options(warmup_select, warmup_options);
 }
 
 function hydrate_progression_exercises(event){
@@ -110,15 +123,18 @@ function hydrate_progression_exercises(event){
 }
 
 function show_hide_warmup(event){
-    console.log(event.target.checked);
-    sibling_element = event.target;
-    new_element = document.createElement("p");
-    new_element.innerHTML = `Current status ${event.target.checked}`;
-    new_element.after(document.createElement("br"));
-    sibling_element.after(new_element);
+    // we need to toggle so we need to get it
+    warmup_toggle = document.getElementById("warmup_toggle");
+    checked_value = event.target.checked;
+    warmup_toggle.setAttribute(
+        "style",
+        checked_value ? "display: block" : "display: none");
+
 }
 
 
 document.getElementById("master_exercises").addEventListener("change", hydrate_progression_exercises);
 
 document.getElementById("has_warmup").addEventListener("change", show_hide_warmup);
+
+document.getElementById("progression_exercises").addEventListener("change", hydrate_warmup);

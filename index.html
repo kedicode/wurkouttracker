@@ -39,7 +39,7 @@
         </section>
         <section>
             <h2>Log Workout</h2>
-            <form>
+            <form action="log_workout">
                 <!-- TODO(Keenan) Remove these brs with stying later. -->
                 <label for="date">Date</label>
                 <input type="date" name="date" id="date" />
@@ -80,7 +80,20 @@
                     <input type="number" id="warmup_set2" name="warmup_set2" min="10" max="25">
                 </fieldset>
                 <br/>
-                <label for="">
+                <fieldset>
+                    <legend>
+                        Log your Progression
+                    </legend>
+                    <label for="main_set1">Set 1 reps</label>
+                    <input type="number" id="main_set1" name="main_set1" min="0" max="50">
+                    <br/>
+                    <label for="main_set2">Set 2 reps</label>
+                    <input type="number" id="main_set2" name="main_set2" min="0" max="50">
+                    <br/>
+                    <label for="main_set3">Set 3 reps</label>
+                    <input type="number" id="main_set3" name="main_set3" min="0" max="50">
+                </fieldset>
+                <button>Submit</button>
             </form>
         </section>
     </body>

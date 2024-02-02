@@ -1,25 +1,33 @@
 function clear_and_add_options(select_element, options_list){
-    options_length = select_element.options.length;
-    for(let i = 0; i < options_length; i++){
-        select_element.remove(0);
-    }
+    // options_length = select_element.options.length;
+    // for(let i = 0; i < options_length; i++){
+    //     select_element.remove(0);
+    // }
+    // for(let i = 0; i < options_list.length; i++){
+    //     select_element.add(options_list[i]);
+    // }
+    select_element.replaceChildren();
     for(let i = 0; i < options_list.length; i++){
         select_element.add(options_list[i]);
     }
 }
 
-function hydrate_warmup(event){
+function hydrate_warmup(){
     // need to get the index of the selected progression exercise
-    selected_id = event.target.selectedIndex;
     // build a new options list with the options that have ids <= the selected one
     warmup_options = [];
+    progressions = document.getElementById("progression_exercises");
+    progression_options = Array.from(progressions.options);
+    selected_id = progressions.selectedIndex;
     for(let i = 0; i <= selected_id; i++){
-        warmup_options.push(event.target.item(i));
+        warmup_options.push(progression_options[i]);
     }
-    console.log(selected_id);
+    console.log(progressions.options);
+    console.log(warmup_options);
     warmup_select = document.getElementById("warmup_exercise");
     clear_and_add_options(warmup_select, warmup_options);
 }
+
 
 function hydrate_progression_exercises(event){
     select_exercise = (event.target.value);
@@ -129,12 +137,10 @@ function show_hide_warmup(event){
     warmup_toggle.setAttribute(
         "style",
         checked_value ? "display: block" : "display: none");
-
+    hydrate_warmup();
 }
 
 
 document.getElementById("master_exercises").addEventListener("change", hydrate_progression_exercises);
 
 document.getElementById("has_warmup").addEventListener("change", show_hide_warmup);
-
-document.getElementById("progression_exercises").addEventListener("change", hydrate_warmup);

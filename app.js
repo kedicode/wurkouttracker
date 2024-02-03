@@ -110,7 +110,6 @@ function hydrate_progression_exercises(event){
 }
 
 function show_hide_warmup(event){
-    // we need to toggle so we need to get it
     warmup_toggle = document.getElementById("warmup_toggle");
     checked_value = event.target.checked;
     warmup_toggle.setAttribute(

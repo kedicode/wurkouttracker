@@ -12,7 +12,7 @@ function hydrate_progression_exercises(event){
     select_exercise = (event.target.value);
     progression_select = document.getElementById("progression_exercises");
     new_options = [];
-        switch(select_exercise){
+    switch(select_exercise){
     case "one_arm_pushup":
         {
             exercises = ['Wall Pushup',
@@ -117,9 +117,24 @@ function show_hide_warmup(event){
         checked_value ? "display: block" : "display: none");
 }
 
+async function fetchExercises(){
+    const response = await fetch("http://127.0.0.1:8000");
+    const exerciseData = await response.json();
+    console.log(exerciseData);
+}
+
+function init(event){
+    if(document.readyState === "complete"){
+        console.log("in the event");
+        fetchExercises();
+    }
+}
+
 
 document.getElementById("master_exercises").addEventListener("change", hydrate_progression_exercises);
 
 document.getElementById("has_warmup").addEventListener("change", show_hide_warmup);
 
 document.getElementById("progression_exercises").addEventListener("change", hydrate_warmup);
+
+document.addEventListener("readystatechange", init);

@@ -4,91 +4,98 @@ from starlette.middleware.cors import CORSMiddleware
 origins = ["*"]
 
 master_exercises = {
-    "one_arm_pullup" : {
+    0 : {
+        "name": "One-Arm Pullup",
         "progressions" : {
-            1 :  "Vertical Pullup",
-            2 :  "Horizontal Pullup",
-            3 :  "Jackknife Pullup",
-            4 :  "Half Pullup",
-            5 :  "Full Pullup",
-            6 :  "Close",
-            7 :  "Uneven Pullup",
-            8 :  "1/2 One-Arm Pullup",
-            9 :  "Assisted One-Arm Pullup",
-            10 : "One-Arm Pullup"
-        }
+             0: "Vertical Pullup",
+             1: "Horizontal Pullup",
+             2: "Jackknife Pullup",
+             3: "Half Pullup",
+             4: "Full Pullup",
+             5: "Close",
+             6: "Uneven Pullup",
+             7: "1/2 One-Arm Pullup",
+             8: "Assisted One-Arm Pullup",
+             9: "One-Arm Pullup"
+        },
     },
-    "hanging_leg_raise" : {
-        "progressions" : {
-            1 : "Knee Tuck",
-            2 : "Knee Raise",
-            3 : "Bent Leg Raise",
-            4 : "Frog Leg Raise",
-            5 : "Flat Leg Raise",
-            6 : "Hanging Knee Raise",
-            7 : "Hanging Bent Leg Raise",
-            8 : "Hanging Frong Raise",
-            9 : "Partial Leg Raise",
-            10: "Hanging Leg Raise"
-        }
-    },
-    "one-leg-squat" : {
-        "progressions" : {
-            1 : "Shoulderstand Squat",
-            2:  "Jackknife Squat",
-            3:  "Supported Squat",
-            4:  "Half Squat",
-            5:  "Full Squat",
-            6:  "Close Squat",
-            7:  "Uneven Squat",
-            8:  "1/2 One-Leg Squat",
-            9:  "Assisted One-Leg Squat",
-            10: "One-leg Squat",
 
-        }
-    },
-    "one-arm-pushup" : {
+    1 : {
+        "name": "Hanging Leg Raise",
         "progressions" : {
-            1 :"Wall Pushup",
-            2: "Incline Pushup",
-            3: "Kneeling Pushup",
-            4: "Half Pushup",
-            5: "Full Pushup",
-            6: "Close Pushup",
-            7: "Uneven Pushup",
-            8: "1/2 One-Arm Pushup",
-            9: "Lever Pushup",
-            10:"One-Arm Pushup"
+             0: "Knee Tuck",
+             1: "Knee Raise",
+             2: "Bent Leg Raise",
+             3: "Frog Leg Raise",
+             4: "Flat Leg Raise",
+             5: "Hanging Knee Raise",
+             6: "Hanging Bent Leg Raise",
+             7: "Hanging Frong Raise",
+             8: "Partial Leg Raise",
+             9: "Hanging Leg Raise"
+        },
+         },
+2 : {
+        "name": "One Leg Squat",
+        "progressions" : {
+             0: "Shoulderstand Squat",
+             1: "Jackknife Squat",
+             2: "Supported Squat",
+             3: "Half Squat",
+             4: "Full Squat",
+             5: "Close Squat",
+             6: "Uneven Squat",
+             7: "1/2 One-Leg Squat",
+             8: "Assisted One-Leg Squat",
+             9: "One-leg Squat"
+        },
 
-        }
     },
-    "stand-to-stand-bridge" : {
+3 : {
+        "name": "One Arm Pushup",
         "progressions" : {
-            1 :"Short Bridge",
-            2: "Straight Bridge",
-            3: "Angled Bridge",
-            4: "Head Bridge",
-            5: "Half Bridge",
-            6: "Full Bridge",
-            7: "Wall Walking Bridges Down",
-            8: "Wall Walking Bridges Up",
-            9: "Closing Bridge",
-            10:"Stant-to-Stand Bridge"
-        }
+            0: "Wall Pushup",
+            1: "Incline Pushup",
+            2: "Kneeling Pushup",
+            3: "Half Pushup",
+            4: "Full Pushup",
+            5: "Close Pushup",
+            6: "Uneven Pushup",
+            7: "1/2 One-Arm Pushup",
+            8: "Lever Pushup",
+            9: "One-Arm Pushup"
+        },
+      },
+  4 : {
+        "name": "Stant to Stand Bridge",
+        "progressions" : {
+           0: "Short Bridge",
+           1: "Straight Bridge",
+           2: "Angled Bridge",
+           3: "Head Bridge",
+           4: "Half Bridge",
+           5: "Full Bridge",
+           6: "Wall Walking Bridges Down",
+           7: "Wall Walking Bridges Up",
+           8: "Closing Bridge",
+           9: "Stant-to-Stand Bridge"
+        },
+
     },
-    "one-arm-handstand-pushup" : {
+   5 : {
+        "name": "One-Arm Handstand Pushup",
         "progressions" : {
-            1: "Wall Headstand",
-            2: "Crow Stand",
-            3: "Wall Handstand",
-            4: "Half Handstand Pushup",
-            5: "Handstand Pushup",
-            6: "Close Handstand Pushup",
-            7: "Uneven Handstand Pushup",
-            8: "1/2 One-Arm Handstand Pushup",
-            9: "Lever Handstand Pushup",
-            10:"One-Arm Handstand Pushup"
-        }
+            0: "Wall Headstand",
+            1: "Crow Stand",
+            2: "Wall Handstand",
+            3: "Half Handstand Pushup",
+            4: "Handstand Pushup",
+            5: "Close Handstand Pushup",
+            6: "Uneven Handstand Pushup",
+            7: "1/2 One-Arm Handstand Pushup",
+            8: "Lever Handstand Pushup",
+            9: "One-Arm Handsta nd Pushup"
+        },
     }
 }
     # TODO(Keenan) Finish the loading fo the master exercises

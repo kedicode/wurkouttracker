@@ -98,64 +98,6 @@ master_exercises = {
         },
     }
 }
-    # TODO(Keenan) Finish the loading fo the master exercises
-    #  "one-arm-pullup" : {
-    #     "progressions" : {
-    #         1 :  "Vertical Pullup",
-    #         2 :  "Horizontal Pullup",
-    #         3 :  "Jackknife Pullup",
-    #         4 :  "Half Pullup",
-    #         5 :  "Full Pullup",
-    #         6 :  "Close",
-    #         7 :  "Uneven Pullup",
-    #         8 :  "1/2 One-Arm Pullup",
-    #         9 :  "Assisted One-Arm Pullup",
-    #         10 : "One-Arm Pullup"
-    #     }
-    # },
-    # "one-arm-pullup" : {
-    #     "progressions" : {
-    #         1 :  "Vertical Pullup",
-    #         2 :  "Horizontal Pullup",
-    #         3 :  "Jackknife Pullup",
-    #         4 :  "Half Pullup",
-    #         5 :  "Full Pullup",
-    #         6 :  "Close",
-    #         7 :  "Uneven Pullup",
-    #         8 :  "1/2 One-Arm Pullup",
-    #         9 :  "Assisted One-Arm Pullup",
-    #         10 : "One-Arm Pullup"
-    #     }
-    # },
-    # "one-arm-pullup" : {
-    #     "progressions" : {
-    #         1 :  "Vertical Pullup",
-    #         2 :  "Horizontal Pullup",
-    #         3 :  "Jackknife Pullup",
-    #         4 :  "Half Pullup",
-    #         5 :  "Full Pullup",
-    #         6 :  "Close",
-    #         7 :  "Uneven Pullup",
-    #         8 :  "1/2 One-Arm Pullup",
-    #         9 :  "Assisted One-Arm Pullup",
-    #         10 : "One-Arm Pullup"
-    #     }
-    # },
-    # "one-arm-pullup" : {
-    #     "progressions" : {
-    #         1 :  "Vertical Pullup",
-    #         2 :  "Horizontal Pullup",
-    #         3 :  "Jackknife Pullup",
-    #         4 :  "Half Pullup",
-    #         5 :  "Full Pullup",
-    #         6 :  "Close",
-    #         7 :  "Uneven Pullup",
-    #         8 :  "1/2 One-Arm Pullup",
-    #         9 :  "Assisted One-Arm Pullup",
-    #         10 : "One-Arm Pullup"
-    #     }
-    # }
-
 
 app = FastAPI()
 app.add_middleware(

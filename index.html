@@ -39,30 +39,22 @@
         </section>
         <section>
             <h2>Log Workout</h2>
-            <form action="log_workout">
+            <form id="workout_form">
                 <!-- TODO(Keenan) Remove these brs with stying later. -->
                 <label for="date">Date</label>
-                <input type="date" name="date" id="date" />
+                <input type="date" name="date" name="date" id="date" />
                 <br/>
                 <label for="master_exercise">Select Master Exercise</label>
-                <select name="master_exercises" id="master_exercises">
-                    <!-- <option value="">--Please choose an options--</option>
-                         <option value="one_arm_pushup">One Arm Pushup</option>
-                         <option value="one_arm_pullup">One Arm Pullup</option>
-                         <option value="hanging_leg_raise">Hanging Leg Raise</option>
-                         <option value="stand_to_stand_bridge">Stand to Stand Bridge</option>
-                         <option value="one_arm_handstand_pushups">One Arm Handstand Pushups</option>
-                         <option value="one_leg_squat">One Leg Squat</option> -->
-
+                <select name="master_exercises" name="master_exercises" id="master_exercises">
                 </select>
                 <br/>
                 <label for="progression_exercise">Select Progression Exercise</label>
-                <select name="progression_exercise" id="progression_exercises">
+                <select name="progression_exercise" name="progression_exercises" id="progression_exercises">
                     <option value="">--Please choose an option--</option>
                 </select>
                 <br/>
                 <label for="has_warmup">Add Warmup</label>
-                <input type="checkbox" id="has_warmup" />
+                <input type="checkbox" name="has_warmup" id="has_warmup" />
                 <!-- TODO(Keenan) Remember that warming up means that you are only doing
                      the exercise level at and below the current exercise -->
                 <fieldset id="warmup_toggle", style="display: none">
@@ -74,11 +66,9 @@
                         <option>--Please choose an options</option>
                     </select>
                     <br/>
-                    <label for="warmup_set1">Set 1 reps</label>
-                    <input type="number" id="warmup_set1" name="warmup_set1" min="10" max="25" value="0">
+                    <label id="warmup1Lbl" name="warmup_set1" for="warmup_set1">Set 1 reps </label>
                     <br/>
-                    <label for="warmup_set2">Set 2 reps</label>
-                    <input type="number" id="warmup_set2" name="warmup_set2" min="10" max="25" value="0">
+                    <label id="warmup2Lbl" name="warmup_set2" for="warmup_set2">Set 2 reps </label>
                 </fieldset>
                 <br/>
                 <fieldset>

@@ -7,7 +7,7 @@ function hydrate_warmup(event){
     warmup_options = Array.from(event.target.options).slice(0, progress_index + 1);
     newOptions = [];
     for(let i = 0; i < warmup_options.length; i++){
-        newOptions.push(new Option(warmup_options[i].value));
+        newOptions.push(new Option(warmup_options[i].text, warmup_options[i].value));
     }
     document.getElementById("warmup_exercise").replaceChildren(...newOptions);
 }
@@ -38,6 +38,21 @@ function hydrate_progression_exercises(event){
 function show_hide_warmup(event){
     warmup_toggle = document.getElementById("warmup_toggle");
     checked_value = event.target.checked;
+    // TODO(Keenan) make sure that these are removed on toggle
+    set1Label = document.getElementById("warmup1Lbl");
+    set2Label = document.getElementById("warmup2Lbl");
+    input1 = document.createElement('input');
+    input2 = document.createElement('input');
+    input1.name = "warmup_set1";
+    input1.type = "number";
+    input1.min = 10;
+    input1.max = 50;
+    input2.name = "warmup_set2";
+    input2.type = "number";
+    input2.min = 10;
+    input2.max = 50;
+    set1Label.after(input1);
+    set2Label.after(input2);
     warmup_toggle.setAttribute(
         "style",
         checked_value ? "display: block" : "display: none");
@@ -59,5 +74,14 @@ document.addEventListener("readystatechange", async () => {
         console.log("in the event");
         await fetchExercises();
         loadMasterExercises();
+    }
+});
+
+document.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    formElm = document.getElementById("workout_form");
+    const formData = new FormData(formElm);
+    for(const [key, value] of formData){
+        console.log(`Key: ${key}, Value: ${value}`);
     }
 });

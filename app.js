@@ -81,7 +81,16 @@ document.addEventListener("submit", async (event) => {
     event.preventDefault();
     formElm = document.getElementById("workout_form");
     const formData = new FormData(formElm);
-    for(const [key, value] of formData){
-        console.log(`Key: ${key}, Value: ${value}`);
+    const data = {};
+    for(let [key, value] of formData.entries()){
+        data[key] = value;
     }
+    response = await fetch("http://127.0.0.1:8000/add_workout/",
+                           {
+                               method: "POST",
+                               body: JSON.stringify(data),
+                               headers: {
+                                   "Content-Type": "application/json"
+                               }
+                           });
 });

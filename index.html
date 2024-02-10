@@ -4,39 +4,8 @@
         <title>Wurkouts</title>
     </head>
     <body>
-        <h1>Home Page</h1>
-        <section>
-            <h2>Previous workouts</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <!-- TODO(Keenan) consider adding the time -->
-                        <th>Master Excercise</th>
-                        <th>Progression Name</th>
-                        <th>Level</th>
-                        <th>Had Warmups?</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <!-- TODO(Keenan) add a query into the href to point to actual workout -->
-                        <td><a href="http://127.0.0.1:8000/workouts/1">01/16/2023</td>
-                            <td>Push Up</td>
-                            <td>Incline Push Up</td>
-                            <td>2</td>
-                            <td><input type="checkbox", checked/ disabled></td>
-                    </tr>
-                    <tr>
-                        <td><a href="log.html">01/16/2023</td>
-                            <td>Leg Laise</td>
-                            <td>Knee Tuck</td>
-                            <td>1</td>
-                            <td><input type="checkbox", disabled></td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+        <h1>CC Wurkout Tracker</h1>
+
         <section>
             <h2>Log Workout</h2>
             <form id="workout_form">
@@ -55,8 +24,6 @@
                 <br/>
                 <label for="has_warmup">Add Warmup</label>
                 <input type="checkbox" name="has_warmup" id="has_warmup" />
-                <!-- TODO(Keenan) Remember that warming up means that you are only doing
-                     the exercise level at and below the current exercise -->
                 <fieldset id="warmup_toggle", style="display: none">
                     <legend>
                         Log your warmup
@@ -86,6 +53,23 @@
                 </fieldset>
                 <button>Submit</button>
             </form>
+        </section>
+        <section>
+            <h2>Previous workouts</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <!-- TODO(Keenan) consider adding the time -->
+                        <th>Master Excercise</th>
+                        <th>Progression Name</th>
+                        <th>Level</th>
+                        <th>Warmups?</th>
+                    </tr>
+                </thead>
+                <tbody id="workout_table">
+                </tbody>
+            </table>
         </section>
     </body>
     <script type="text/javascript" src="app.js"></script>

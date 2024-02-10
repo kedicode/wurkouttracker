@@ -153,11 +153,12 @@ async def create_workout(exercise_log: ExerciseLog):
     # parsed on the frontend
     log_entry = {
         "date": exercise_log.date,
-        "master_exericise" : {
+        "master_exercise" : {
             "name": exercise["name"],
         },
         "progression_exercise": {
         "name": exercise["progressions"][exercise_log.progression_exercise],
+            "level": exercise_log.progression_exercise + 1,
             "sets": [
                 exercise_log.main_set1,
                 exercise_log.main_set2,
@@ -178,5 +179,5 @@ async def create_workout(exercise_log: ExerciseLog):
     full_path = f"c:\\workout_logs\\{folder_date}"
     if not os.path.exists(full_path):
         os.makedirs(full_path, exist_ok = True)
-    with open(f"c:\\workout_logs\\{folder_date}\\{date_array[2]}_{exercise['name']}.json", 'a') as f:
+    with open(f"c:\\workout_logs\\{folder_date}\\{date_array[2]}_{exercise['name']}.json", 'w') as f:
         json.dump(log_entry, f)

@@ -12,6 +12,30 @@ function hydrate_warmup(event){
     document.getElementById("warmup_exercise").replaceChildren(...newOptions);
 }
 
+function hydrateWorkoutTable(data){
+    table = document.querySelector('#workout_table');
+    table.replaceChildren('');
+    for(log of data){
+        tr = document.createElement('tr');
+        dateTd = document.createElement('td');
+        dateA = document.createElement('a');
+        dateA.href = 'log.html';
+        masterTd = document.createElement('td');
+        progressTd = document.createElement('td');
+        levelTd = document.createElement('td');
+        hasWarmupTd = document.createElement('td');
+        dateA.textContent = log.date;
+        dateTd.appendChild(dateA)
+        masterTd.textContent = log.master_exercise.name;
+        progressTd.textContent = log.progression_exercise.name;
+        // TODO(Keenan) level is not in the data add level
+        levelTd.textContent = log.progression_exercise.level;
+        hasWarmupTd.innerHTML = !log.warmup_exercises ? '&CircleTimes;' : '&check;';
+        tr.replaceChildren(dateTd, masterTd, progressTd, levelTd, hasWarmupTd);
+        table.appendChild(tr);
+    }
+}
+
 async function loadMasterExercises(exercises){
     newOptions = [];
     newOptions.push(new Option("--Select and Option--"))
@@ -36,23 +60,30 @@ function hydrate_progression_exercises(event){
 }
 
 function show_hide_warmup(event){
+    document.querySelectorAll(".warmup_input").forEach(e => e.remove());
     warmup_toggle = document.getElementById("warmup_toggle");
     checked_value = event.target.checked;
     // TODO(Keenan) make sure that these are removed on toggle
     set1Label = document.getElementById("warmup1Lbl");
     set2Label = document.getElementById("warmup2Lbl");
-    input1 = document.createElement('input');
-    input2 = document.createElement('input');
-    input1.name = "warmup_set1";
-    input1.type = "number";
-    input1.min = 10;
-    input1.max = 50;
-    input2.name = "warmup_set2";
-    input2.type = "number";
-    input2.min = 10;
-    input2.max = 50;
-    set1Label.after(input1);
-    set2Label.after(input2);
+    if(checked_value) {
+        input1 = document.createElement('input');
+        input1.classList.add('warmup_input')
+        input2 = document.createElement('input');
+        input2.classList.add('warmup_input')
+        input1.name = "warmup_set1";
+        input1.type = "number";
+        input1.min = 10;
+        input1.max = 50;
+        input2.name = "warmup_set2";
+        input2.type = "number";
+        input2.min = 10;
+        input2.max = 50;
+        input1.value = 0;
+        input2.value = 0;
+        set1Label.after(input1);
+        set2Label.after(input2);
+    }
     warmup_toggle.setAttribute(
         "style",
         checked_value ? "display: block" : "display: none");
@@ -61,6 +92,11 @@ function show_hide_warmup(event){
 async function fetchExercises(){
     const response = await fetch("http://127.0.0.1:8000");
     exerciseData = await response.json();
+}
+
+async function fetchLogs(){
+    const response = await fetch("http://127.0.0.1:8000/workouts/");
+    return await response.json();
 }
 
 document.getElementById("master_exercises").addEventListener("change", hydrate_progression_exercises);
@@ -74,6 +110,8 @@ document.addEventListener("readystatechange", async () => {
         console.log("in the event");
         await fetchExercises();
         loadMasterExercises();
+        const logData = await fetchLogs();
+        hydrateWorkoutTable(logData);
     }
 });
 
@@ -85,12 +123,21 @@ document.addEventListener("submit", async (event) => {
     for(let [key, value] of formData.entries()){
         data[key] = value;
     }
-    response = await fetch("http://127.0.0.1:8000/add_workout/",
-                           {
-                               method: "POST",
-                               body: JSON.stringify(data),
-                               headers: {
-                                   "Content-Type": "application/json"
-                               }
-                           });
+    try {
+        response = await fetch("http://127.0.0.1:8000/add_workout/",
+                               {
+                                   method: "POST",
+                                   body: JSON.stringify(data),
+                                   headers: {
+                                       "Content-Type": "application/json"
+                                   }
+                               });
+        if(response.status === 200){
+            const logs = await fetchLogs();
+            hydrateWorkoutTable(logs);
+        }
+    }
+    catch(error) {
+        console.error("Error", error);
+    }
 });

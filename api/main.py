@@ -140,11 +140,19 @@ async def workout_list():
 
     return workouts
 
-@app.get("/workouts/{id}")
-async def root(id: int):
-    if id == 1:
-        return "yay you got this working"
-    return {"This would be some workouts"}
+@app.get("/workouts/{year}/{month}/{day}")
+async def root(year: str, month: str, day: str):
+    # query the files system for that year month day
+    # combination and return the two logs that are
+    # part of that comibination
+    workouts = []
+    path = os.path.join("c:\\workout_logs\\", year, month)
+    for file in os.listdir(path):
+        if file[0:2] == day:
+            with open(os.path.join(path, file), 'r') as f:
+                workouts.append(json.load(f))
+
+    return workouts
 
 @app.post("/add_workout/")
 async def create_workout(exercise_log: ExerciseLog):

@@ -1,7 +1,6 @@
 let exerciseData = {}
 
 
-// TODO(Keenan) fix this as it won't work with api implementation
 function hydrate_warmup(event){
     progress_index = event.target.selectedIndex;
     warmup_options = Array.from(event.target.options).slice(0, progress_index + 1);
@@ -19,7 +18,7 @@ function hydrateWorkoutTable(data){
         tr = document.createElement('tr');
         dateTd = document.createElement('td');
         dateA = document.createElement('a');
-        dateA.href = 'log.html';
+        dateA.href = `log.html?${log.date}`;
         masterTd = document.createElement('td');
         progressTd = document.createElement('td');
         levelTd = document.createElement('td');
@@ -28,7 +27,6 @@ function hydrateWorkoutTable(data){
         dateTd.appendChild(dateA)
         masterTd.textContent = log.master_exercise.name;
         progressTd.textContent = log.progression_exercise.name;
-        // TODO(Keenan) level is not in the data add level
         levelTd.textContent = log.progression_exercise.level;
         hasWarmupTd.innerHTML = !log.warmup_exercises ? '&CircleTimes;' : '&check;';
         tr.replaceChildren(dateTd, masterTd, progressTd, levelTd, hasWarmupTd);
@@ -63,7 +61,6 @@ function show_hide_warmup(event){
     document.querySelectorAll(".warmup_input").forEach(e => e.remove());
     warmup_toggle = document.getElementById("warmup_toggle");
     checked_value = event.target.checked;
-    // TODO(Keenan) make sure that these are removed on toggle
     set1Label = document.getElementById("warmup1Lbl");
     set2Label = document.getElementById("warmup2Lbl");
     if(checked_value) {

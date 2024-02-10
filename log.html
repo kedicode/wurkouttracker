@@ -3,9 +3,8 @@
         <title>Wurkouts</title>
     </head>
     <body>
-        <!-- TODO(Keenan) Add the return for days workout instead of template -->
         <header>
-            <h1>12/28/2023</h1>
+            <h1></h1>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -16,45 +15,19 @@
             <table>
                 <thead>
                     <tr>
-                        <!-- TODO(Keenan) Figure out a way only show warmups for workouts
-                             with warmups
-                             things to consider
-                             1 should we send this as prerendered as we won't know the total amount of warmups-->
                         <th>Warmup</th>
                         <!-- For now we will assume 1 warmup with two sets -->
                         <th colspan="2">Sets</th>
                         <th>Main Exercise</th>
-                        <th>Standard</th>
                         <th colspan="3">Sets</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>Wall Pushup</td>
-                        <td>25</td>
-                        <td>20</td>
-                        <td>Incline Pushup</td>
-                        <td>Beginner</td>
-                        <td>15</td>
-                        <td>15</td>
-                        <td>15</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>Knee Tuck</td>
-                        <td>Beginner</td>
-                        <td>15</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
+                <tbody id="log_body">
                 </tbody>
             </table>
         </section>
         <section>
             <h3>Notes</h3>
-            <p>carpet slipped will be better next time.</p>
         </section>
         <script type="text/javascript" src="log.js"></script>
     </body>

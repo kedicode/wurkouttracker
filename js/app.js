@@ -65,9 +65,9 @@ function show_hide_warmup(event){
     set2Label = document.getElementById("warmup2Lbl");
     if(checked_value) {
         input1 = document.createElement('input');
-        input1.classList.add('warmup_input')
+        input1.classList.add('warmup_input', 'input')
         input2 = document.createElement('input');
-        input2.classList.add('warmup_input')
+        input2.classList.add('warmup_input', 'input')
         input1.name = "warmup_set1";
         input1.type = "number";
         input1.min = 10;

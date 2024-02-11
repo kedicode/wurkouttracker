@@ -1,18 +1,28 @@
-<html>
+<!DOCTYPE html>
     <head>
         <title>Wurkouts</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
+        <section class="hero is-success">
+            <div class="hero-body">
+                <p class="title">
+                    Date of Workout
+                </p>
+                <h1 class="subtitle"></h1>
+            </div>
+        </section>
         <header>
-            <h1></h1>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
                 </ul>
             </nav>
         </header>
-        <section>
-            <table>
+        <section class="section">
+           <div class="container">
+            <table class="table">
                 <thead>
                     <tr>
                         <th>Warmup</th>
@@ -25,10 +35,13 @@
                 <tbody id="log_body">
                 </tbody>
             </table>
+           </div>
         </section>
-        <section>
-            <h3>Notes</h3>
+        <section class="section">
+            <div class="content">
+                <h3>Notes</h3>
+            </div>
         </section>
-        <script type="text/javascript" src="log.js"></script>
+        <script type="text/javascript" src="js/log.js"></script>
     </body>
 </html>

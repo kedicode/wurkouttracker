@@ -1,76 +1,132 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
     <head>
         <title>Wurkouts</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
-    <body>
-        <h1>CC Wurkout Tracker</h1>
-
-        <section>
-            <h2>Log Workout</h2>
+<body>
+    <section class="hero is-success">
+        <div class="hero-body">
+            <h1 class="title">
+                CC  Wurkout Tracker
+            </h1>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="content">
+                <h3>Log Workout</h3>
+            </div>
             <form id="workout_form">
-                <!-- TODO(Keenan) Remove these brs with stying later. -->
                 <!-- TODO(Keenan) add a notes section -->
-                <label for="date">Date</label>
-                <input type="date" name="date" name="date" id="date" />
-                <br/>
-                <label for="master_exercise">Select Master Exercise</label>
-                <select name="master_exercises" name="master_exercises" id="master_exercises">
-                </select>
-                <br/>
-                <label for="progression_exercise">Select Progression Exercise</label>
-                <select name="progression_exercise" name="progression_exercises" id="progression_exercises">
-                    <option value="">--Please choose an option--</option>
-                </select>
-                <br/>
-                <label for="has_warmup">Add Warmup</label>
-                <input type="checkbox" name="has_warmup" id="has_warmup" />
-                <fieldset id="warmup_toggle", style="display: none">
-                    <legend>
-                        Log your warmup
-                    </legend>
-                    <label for="warmup_exercise">Warmup</label>
-                    <select id="warmup_exercise" name="warmup_exercise">
-                        <option value="-1">--Please choose an options</option>
-                    </select>
-                    <br/>
-                    <label id="warmup1Lbl" name="warmup_set1" for="warmup_set1">Set 1 reps </label>
-                    <br/>
-                    <label id="warmup2Lbl" name="warmup_set2" for="warmup_set2">Set 2 reps </label>
-                </fieldset>
-                <br/>
-                <fieldset>
-                    <legend>
-                        Log your Progression
-                    </legend>
-                    <label for="main_set1">Set 1 reps</label>
-                    <input type="number" id="main_set1" name="main_set1" min="0" max="50" value="0">
-                    <br/>
-                    <label for="main_set2">Set 2 reps</label>
-                    <input type="number" id="main_set2" name="main_set2" min="0" max="50" value="0">
-                    <br/>
-                    <label for="main_set3">Set 3 reps</label>
-                    <input type="number" id="main_set3" name="main_set3" min="0" max="50" value="0">
-                </fieldset>
-                <button>Submit</button>
+                <div class="field">
+                    <label class="label" for="date">Date</label>
+                    <div class="control">
+                        <input class="input" type="date" name="date" name="date" id="date" />
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label" for="master_exercise">Select Master Exercise</label>
+                    <div class="control">
+                        <div class="select">
+                        <select class="select" name="master_exercises" name="master_exercises" id="master_exercises">
+                        </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label" for="progression_exercise">Select Progression Exercise</label>
+                    <div class="control">
+                        <div class="select">
+                        <select class="select" name="progression_exercise" name="progression_exercises" id="progression_exercises">
+                            <option value="">--Please choose an option--</option>
+                        </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                        <div class="control">
+                            <label class="checkbox" for="has_warmup">
+
+                                <input type="checkbox" name="has_warmup" id="has_warmup" />Add Warmup
+                            </label>
+                        </div>
+                </div>
+                <div class="box" id="warmup_toggle" style="display: none">
+                    <div class="field">
+                        <label class="label" for="warmup_exercise">Warmup</label>
+                        <div class="control">
+                            <div class="select">
+                                <select id="warmup_exercise" name="warmup_exercise">
+                                    <option value="-1">--Please choose an options</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                            <label class="label" id="warmup1Lbl" name="warmup_set1" for="warmup_set1">Set 1 reps </label>
+                            <div class="control">
+                            </div>
+                        </div>
+                    <div class="field">
+                            <label class="label" id="warmup2Lbl" name="warmup_set2" for="warmup_set2">Set 2 reps </label>
+                            <div class="control">
+                            </div>
+                        </div>
+                </div>
+                <div class="box">
+                            <div class="label">
+                                Log your Progression
+                            </div>
+                            <div class="field">
+                                <label class="label" for="main_set1">Set 1 reps</label>
+                                <div class="control">
+                                    <input class="input" type="number" id="main_set1" name="main_set1" min="0" max="50" value="0">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label" for="main_set2">Set 2 reps</label>
+                                <div class="control">
+                                    <input class="input" type="number" id="main_set2" name="main_set2" min="0" max="50" value="0">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label" for="main_set3">Set 3 reps</label>
+                                <div class="control">
+                                    <input class="input" type="number" id="main_set3" name="main_set3" min="0" max="50" value="0">
+                                </div>
+                            </div>
+                        </div>
+                <div class="field">
+                            <div class="control">
+                                <button class="button">Submit</button>
+                            </div>
+                        </div>
+
             </form>
-        </section>
-        <section>
-            <h2>Previous workouts</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Master Excercise</th>
-                        <th>Progression Name</th>
-                        <th>Level</th>
-                        <th>Warmups?</th>
-                    </tr>
-                </thead>
-                <tbody id="workout_table">
-                </tbody>
-            </table>
-        </section>
-    </body>
-    <script type="text/javascript" src="app.js"></script>
+        </div>
+    </section>
+    <section class="section">
+                        <div class="container">
+                            <div class="content">
+                                <h2>Previous workouts</h2>
+                            </div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Master Excercise</th>
+                                        <th>Progression Name</th>
+                                        <th>Level</th>
+                                        <th>Warmups?</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="workout_table">
+                                </tbody>
+                            </table>
+                        </div>
+    </section>
+    <script type="text/javascript" src="js/app.js"></script>
+</body>
 </html>

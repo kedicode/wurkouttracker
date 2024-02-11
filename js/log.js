@@ -28,7 +28,7 @@ function hydrateLog(data){
 document.addEventListener("readystatechange", async () => {
     if(document.readyState === "complete"){
         const dateParts = document.baseURI.split('?')[1].split('-')
-        await fetch(`http://127.0.0.1:8000/workouts/${dateParts[0]}/${dateParts[1]}/${dateParts[2]}`)
+        await fetch(`http://192.168.1.105:8000/workouts/${dateParts[0]}/${dateParts[1]}/${dateParts[2]}`)
             .then((response) => {
                 return response.json();
             })

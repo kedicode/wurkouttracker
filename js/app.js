@@ -87,12 +87,17 @@ function show_hide_warmup(event){
 }
 
 async function fetchExercises(){
-    const response = await fetch("http://127.0.0.1:8000");
-    exerciseData = await response.json();
+    try {
+        const response = await fetch("http://192.168.1.105:8000");
+        exerciseData = await response.json();
+    }
+    catch(error){
+        alert(error);
+    }
 }
 
 async function fetchLogs(){
-    const response = await fetch("http://127.0.0.1:8000/workouts/");
+    const response = await fetch("http://192.168.1.105:8000/workouts/");
     return await response.json();
 }
 
@@ -121,7 +126,7 @@ document.addEventListener("submit", async (event) => {
         data[key] = value;
     }
     try {
-        response = await fetch("http://127.0.0.1:8000/add_workout/",
+        response = await fetch("http://192.168.1.105:8000/add_workout/",
                                {
                                    method: "POST",
                                    body: JSON.stringify(data),

@@ -1,3 +1,4 @@
+// add the notes from the data
 function hydrateLog(data){
     document.querySelector('h1').textContent = data[0].date;
     body = document.querySelector('#log_body');

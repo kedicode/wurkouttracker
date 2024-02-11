@@ -15,6 +15,7 @@ class ExerciseLog(BaseModel):
     main_set1:               int
     main_set2:               int
     main_set3:               int
+    notes:                   str
 
 origins = ["*"]
 
@@ -173,6 +174,7 @@ async def create_workout(exercise_log: ExerciseLog):
                 exercise_log.main_set3
             ]
         },
+        "notes": exercise_log.notes
     }
     if exercise_log.has_warmup:
         log_entry["warmup_exercises"] = {
